@@ -1,144 +1,140 @@
 /**
- * Creates a class to store the information of a book, and let the user change the information when neccessary
- * @author 23azhang
- *
+ * CLass to hold a book object with title, author, isbn, pages, subject
  */
 public class Book 
 {
-	//instance data
 	private String title;
 	private String author;
-	private String publisher;
-	private String copyrightDate;
 	private String ISBN;
+	private int pages;
+	private String subject;
 	
 	/**
-	 * Initiates the instance data of the book
-	 * @param t is the title of the book
-	 * @param a is the author of the book
-	 * @param p is the publisher of the book
-	 * @param c is the copyright date of the book
-	 * @param i is the ISBN of the book
-	 */
-	public Book(String t, String a, String p, String c, String i)
-	{
-		title = t;
-		author = a;
-		publisher = p;
-		copyrightDate = c;
-		ISBN = i;
-	}
-	
-	/**
-	 * Initiates the instance data of the book to be later set by user
+	 * Constructor for a default book
 	 */
 	public Book()
 	{
-		setTitle("Unkonwn");
-		setAuthor("Unknown");
-		setPublisher("Unknown");
-		setCopyrightDate("Unknown");
-		setISBN("Unknown");
+		title = "Default Book";
+		author = "Default Author";
+		ISBN = "Default ISBN";
+		pages = 0;
+		subject = "Default Subject";
 	}
 	
 	/**
-	 * Gets the title of the book
-	 * @return the title of the book
+	 * constructor for custom book object
+	 * @param title
+	 * @param author
+	 * @param ISBN
+	 * @param pages
+	 * @param subject
 	 */
-	public String getTitle()
+	public Book(String title, String author, String ISBN, int pages, String subject)
+	{
+		this.title = title;
+		this.author = author;
+		this.ISBN = ISBN;
+		this.pages = pages;
+		this.subject = subject;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() 
 	{
 		return title;
 	}
-	
+
 	/**
-	 * Gets the author of the book
-	 * @return the author of the book
+	 * @param title the title to set
 	 */
-	public String getAuthor()
+	public void setTitle(String title) 
+	{
+		this.title = title;
+	}
+
+	/**
+	 * @return the author
+	 */
+	public String getAuthor() 
 	{
 		return author;
 	}
-	
+
 	/**
-	 * Gets the publisher of the book
-	 * @return the publisher of the book
+	 * @param author the author to set
 	 */
-	public String getPublisher()
+	public void setAuthor(String author) 
 	{
-		return publisher;
+		this.author = author;
 	}
 
 	/**
-	 * Gets the copyright date of the book
-	 * @return the copyright date of the book
+	 * @return the iSBN
 	 */
-	public String getCopyrightDate()
-	{
-		return copyrightDate;
-	}
-	
-	/**
-	 * Gets the ISBN of the book
-	 * @return the ISBN of the book
-	 */
-	public String getISBN()
+	public String getISBN() 
 	{
 		return ISBN;
 	}
-	
+
 	/**
-	 * Sets the title of the book to str
-	 * @param str the title to be changed to
+	 * @param iSBN the iSBN to set
 	 */
-	public void setTitle(String str)
+	public void setISBN(String isbn) 
 	{
-		this.title = str;
-	}
-	
-	/**
-	 * Sets the author of the book to str
-	 * @param str the author to be changed to
-	 */
-	public void setAuthor(String str)
-	{
-		this.author = str;
-	}
-	
-	/**
-	 * Sets the publisher of the book to str
-	 * @param str the publisher to be changed to
-	 */
-	public void setPublisher(String str)
-	{
-		this.publisher = str ;
+		ISBN = isbn;
 	}
 
 	/**
-	 * Sets the copyright date of the book to str
-	 * @param str the copyright date to be changed to
+	 * @return the pages
 	 */
-	public void setCopyrightDate(String str)
+	public int getPages() 
 	{
-		this.copyrightDate= str ;
+		return pages;
+	}
+
+	/**
+	 * @param pages the pages to set
+	 */
+	public void setPages(int pages) 
+	{
+		this.pages = pages;
+	}
+
+	/**
+	 * @return the subject
+	 */
+	public String getSubject() 
+	{
+		return subject;
+	}
+
+	/**
+	 * @param subject the subject to set
+	 */
+	public void setSubject(String subject) 
+	{
+		this.subject = subject;
 	}
 	
 	/**
-	 * Sets the ISBN of the book to str
-	 * @param str the ISBN to be changed to
+	 * Returns the string representation of the book in the format
+	 * Title: ________
+	 * Author: ________
+	 * ISBN: ________
+	 * Pages: ________
+	 * Subject: ________
 	 */
-	public void setISBN(String str)
-	{
-		this.ISBN= str ;
-	}
-	
-	public String toString() 
+	@Override
+	public String toString()
 	{
 		String result = "";
-		result = result.concat("Title: " + title + "\n");
-		result = result.concat("Author: " + author + "\n");
-		result = result.concat("Publisher: " + publisher + "\n");
-		result = result.concat("Copyright Date: " + copyrightDate + "\n");
-		result = result.concat("ISBN: " + ISBN + "\n");
+		result += "Title: " + title;
+		result += "\nAuthor: " + author;
+		result += "\nISBN: " + ISBN;
+		result += "\nPages: "+pages;
+		result += "\nSubject: "+subject;
 		return result;
 	}
 }
